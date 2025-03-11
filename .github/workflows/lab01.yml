@@ -6,9 +6,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: pip install nbconvert
-
-      - run: pip install inkex
-      
-      - run: sudo apt-get install pandoc
+      - run: sudo apt-get install pandoc inkscape
       - run: python -m nbconvert --to pdf pint_and_boiling_point.ipynb
 
