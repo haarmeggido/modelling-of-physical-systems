@@ -1,7 +1,9 @@
 name: lab01
-on: [push]
+on: push
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      -run: echo Hello World
+      - run: pip install nbconvert
+      - run: python -m nbconvert  pint_and_boiling_point.ipynb
+
