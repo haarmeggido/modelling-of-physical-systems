@@ -1,10 +1,6 @@
 name: lab02
 on:
-  push:
-    branches:
-      - 'main'
-    # paths:
-    # - ./'labs/**'
+  push
 jobs:
   run:
     runs-on: ubuntu-latest
