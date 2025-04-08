@@ -1,0 +1,32 @@
+name: lab04
+on:
+  push:
+    paths:
+      - 'labs/lab04/**'
+jobs:
+  create_pdf_artifact:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.x'
+
+
+    - name: Install Python dependencies
+      run: pip install nbconvert ipykernel pint matplotlib scipy open_atmos_jupyter_utils
+
+    - name: Install system dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y pandoc inkscape texlive-xetex
+
+    - name: Build Assignment 2 .PDF Artifact
+      run: python -m nbconvert --to pdf --execute labs/lab03/hw_04.ipynb
+
+    - uses: actions/upload-artifact@v4
+      with:
+        name: lab03
+        path: labs/lab03/hw_04.pdf
