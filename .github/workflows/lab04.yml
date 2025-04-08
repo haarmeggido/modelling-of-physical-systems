@@ -23,10 +23,10 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y pandoc inkscape texlive-xetex
 
-    - name: Build Assignment 2 .PDF Artifact
-      run: python -m nbconvert --to pdf --execute labs/lab03/hw_04.ipynb
+    - name: Build Assignment 4 .PDF Artifact
+      run: python -m nbconvert --to pdf --execute labs/lab04/hw_04.ipynb
 
     - uses: actions/upload-artifact@v4
       with:
-        name: lab03
-        path: labs/lab03/hw_04.pdf
+        name: lab04
+        path: labs/lab04/hw_04.pdf
